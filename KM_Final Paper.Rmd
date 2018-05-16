@@ -1,5 +1,5 @@
 ---
-title: "Final Paper Draft"
+title: "Assessing the Perfomance of Ordered Logistic Regression in the Study of Forest Sustainability"
 author: "Karan"
 date: "April 17, 2018"
 output:
@@ -34,6 +34,10 @@ library(foreach)
 library(doParallel)
 
 
+thisdir <- here::here()
+setwd(thisdir)
+
+
 ```
 
 ```{r echo=FALSE, results='hide',message=FALSE}
@@ -42,8 +46,11 @@ library(doParallel)
 
 ##Paper available here: https://doi.org/10.1126/science.1199343
 
-fpdat <- read_dta(
-  "C:/Users/karan/Desktop/PS 531/pershaagrawalchhatre_jan_2011 (2)/PershaAgrawalChhatre_Science2011.dta")
+##fpdat <- read_dta(
+  ##"C:/Users/karan/Desktop/PS 531/pershaagrawalchhatre_jan_2011 (2)/PershaAgrawalChhatre_Science2011.dta")
+##View(fpdat)
+
+fpdat <- read_dta("https://github.com/karanmisquitta/FinalPaperps531/blob/master/PershaAgrawalChhatre_Science2011.dta?raw=true")
 View(fpdat)
 ```
 
@@ -246,7 +253,7 @@ return(sumbs)
 #registerDoParallel(cl)
 
 set.seed(143435)
-test <- replicate(10, mybs(repdat))
+test <- replicate(10000, mybs(repdat))
 
 
 
